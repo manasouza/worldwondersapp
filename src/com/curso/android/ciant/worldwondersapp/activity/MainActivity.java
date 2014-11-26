@@ -1,4 +1,4 @@
-package com.curso.android.ciant.worldwondersapp;
+package com.curso.android.ciant.worldwondersapp.activity;
 
 import com.example.worldwondersapp.R;
 

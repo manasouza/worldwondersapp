@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="array_country">
+        <item>Brasil</item>
+        <item>Canadá</item>
+        <item>China</item>
+    </string-array>
+
+    <string-array name="array_language_brasil">
+        <item>Português</item>
+    </string-array>
+
+    <string-array name="array_language_canada">
+        <item>Francês</item>
+        <item>Inglês</item>
+    </string-array>
+
+    <string-array name="array_language_china">
+        <item>Mandarim</item>
+        <item>Mongol</item>
+    </string-array>
+
+</resources>

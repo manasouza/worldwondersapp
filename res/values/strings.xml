@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">WorldWondersApp</string>
-    <string name="hello_world">Hello world!</string>
+	<string name="app_name">Maravilhas do Mundo</string>
     <string name="action_settings">Settings</string>
 
+    <string name="text_view_email">E-mail</string>
+    <string name="text_view_password">Senha</string>
+    <string name="button_login">Entrar</string>
+    <string name="button_signup">Fazer cadastro</string>
+    <string name="msg_invalid_login">E-mail ou senha inválidos</string>
+    <string name="msg_signup_cancel">Cadastro cancelado</string>
+    
+    <!-- Messages -->
+ 	<string name="msg_required_field">Campo obrigatório</string>
+ 	    
+    <!-- Register -->
+    <string name="text_view_name">Nome</string>
+    <string name="text_view_password_confirmation">Confirmação de Senha</string>
+    <string name="text_view_country">País</string>
+    <string name="auto_complete_language">Idioma</string>
+    <string name="text_view_gender">Sexo</string>
+    <string name="radio_button_male">Masculino</string>
+    <string name="radio_button_female">Feminino</string>
+    <string name="check_box_notification">Receber notificações</string>
+    <string name="button_register">Enviar</string>
+    <string name="msg_required_field_gender">Campo sexo é obrigatório</string>
+    <string name="msg_password_confirmation">Confirmação de senha inválida</string>
+   
+    
 </resources>
