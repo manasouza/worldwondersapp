@@ -1,11 +1,16 @@
 package com.curso.android.ciant.worldwondersapp.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.curso.android.ciant.worldwondersapp.entity.User;
+import com.curso.android.ciant.worldwondersapp.infrastructure.Constants;
+import com.curso.android.ciant.worldwondersapp.integrator.UserSharedPreferences;
 import com.example.worldwondersapp.R;
 
 public class LoginActivity extends Activity{
@@ -34,6 +39,7 @@ public class LoginActivity extends Activity{
             	if (validateFields()){
             		String email = mEditTextEmail.getText().toString();
                     String password = mEditTextPassword.getText().toString();
+                    login(email, password);
             	}
             }
         
@@ -43,9 +49,47 @@ public class LoginActivity extends Activity{
 
             @Override
             public void onClick(View v) {
-            	
+            	Intent it = new Intent(LoginActivity.this, RegisterActivity.class);
+            	String email = mEditTextEmail.getText().toString();
+            	if (email != null && !email.isEmpty()){
+            		Bundle bundle = new Bundle();
+            		bundle.putString(Constants.Bundle.BUNDLE_USER_EMAIL, email);
+            		it.putExtras(bundle);
+            	}
+            	startActivityForResult(it, Constants.RequestCode.LOGIN_ACTIVITY);
             }
         });
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		if (resultCode == Activity.RESULT_OK){
+			if(requestCode == Constants.RequestCode.LOGIN_ACTIVITY){
+				if (data != null){
+					String email = data.getStringExtra(Constants.Bundle.BUNDLE_USER_EMAIL);
+					String password = data.getStringExtra(Constants.Bundle.BUNDLE_USER_PASSWORD);
+					login(email, password);
+				}
+			}
+		}else if (resultCode == Activity.RESULT_CANCELED){
+			Toast.makeText(this, getResources().getString(R.string.msg_signup_cancel), Toast.LENGTH_SHORT).show();
+		}
+	}
+	
+	private void login(String email, String password){
+		UserSharedPreferences mUserSharedPreferences = new UserSharedPreferences(this);
+		User user = mUserSharedPreferences.loginUser(email, password);
+		
+		if(user != null){
+			Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+		}else{
+			Toast.makeText(LoginActivity.this, getResources().getString(R.string.msg_invalid_login), Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	private Boolean validateFields() {

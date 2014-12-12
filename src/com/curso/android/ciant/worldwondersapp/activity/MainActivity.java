@@ -1,8 +1,10 @@
 package com.curso.android.ciant.worldwondersapp.activity;
 
+import com.curso.android.ciant.worldwondersapp.integrator.UserSharedPreferences;
 import com.example.worldwondersapp.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,10 +12,17 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity {
 
+	private UserSharedPreferences mUserSharedPreferences;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        mUserSharedPreferences = new UserSharedPreferences(this);
+        if (!mUserSharedPreferences.isUserLogged()){
+        	logout();
+        }
     }
 
 
@@ -34,5 +43,12 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    private void logout() {
+        mUserSharedPreferences.logoutUser();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

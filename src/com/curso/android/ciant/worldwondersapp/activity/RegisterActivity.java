@@ -3,6 +3,7 @@ package com.curso.android.ciant.worldwondersapp.activity;
 import java.util.Arrays;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,7 +16,9 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.curso.android.ciant.worldwondersapp.entity.User;
 import com.curso.android.ciant.worldwondersapp.infrastructure.Constants;
+import com.curso.android.ciant.worldwondersapp.integrator.UserSharedPreferences;
 import com.example.worldwondersapp.R;
 
 public class RegisterActivity extends Activity{
@@ -29,11 +32,15 @@ public class RegisterActivity extends Activity{
     private RadioGroup mRadioGroupGender;
     private CheckBox mCheckBoxNotification;
     private Button mButtonRegister;
+    
+    private UserSharedPreferences mUserSharedPreferences;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        
+        mUserSharedPreferences = new UserSharedPreferences(this);
         
         mEditTextName = (EditText) findViewById(R.id.edit_text_name);
         mEditTextEmail = (EditText) findViewById(R.id.edit_text_email);
@@ -50,6 +57,42 @@ public class RegisterActivity extends Activity{
               public void onClick(View v) {
         		  if (validateFields()) {
         			  
+        			  String name = mEditTextName.getText().toString();
+                      String email = mEditTextEmail.getText().toString();
+                      String password = mEditTextPassword.getText().toString();
+                      String country = mSpinnerCountry.getSelectedItem().toString();
+                      String language = mAutoCompleteLanguage.getText().toString();
+                      
+                      String gender = "";
+                      if (mRadioGroupGender.getCheckedRadioButtonId() == R.id.radio_button_male) {
+                          gender = Constants.Entity.User.INDICATOR_GENDER_MALE;
+                      } else if (mRadioGroupGender.getCheckedRadioButtonId() == R.id.radio_button_female) {
+                          gender = Constants.Entity.User.INDICATOR_GENDER_FEMALE;
+                      }
+                      
+                      Integer notification = mCheckBoxNotification.isChecked()? 
+                    		  				 Constants.Entity.User.INDICATOR_NOTIFICATION_ON : 
+                    		  			     Constants.Entity.User.INDICATOR_NOTIFICATION_OFF;
+                      
+                      
+                      User user = new User();
+                      user.setName(name);
+                      user.setEmail(email);
+                      user.setPassword(password);
+                      user.setCountry(country);
+                      user.setLanguage(language);
+                      user.setGender(gender);
+                      user.setNotification(notification);
+                      
+                      if (mUserSharedPreferences.registerUser(user)){
+                    	  Intent intent = new Intent();
+                          Bundle bundle = new Bundle();
+                          bundle.putString(Constants.Bundle.BUNDLE_USER_EMAIL, email);
+                          bundle.putString(Constants.Bundle.BUNDLE_USER_PASSWORD, password);
+                          intent.putExtras(bundle);
+                          setResult(Activity.RESULT_OK, intent);
+                          finish();
+                      }
         		  }
         	  }
         });
@@ -66,6 +109,11 @@ public class RegisterActivity extends Activity{
 
             }
         });
+        
+        if (getIntent().hasExtra(Constants.Bundle.BUNDLE_USER_EMAIL)) {
+            String email = getIntent().getStringExtra(Constants.Bundle.BUNDLE_USER_EMAIL);
+            mEditTextEmail.setText(email);
+        }
         
     }
     
