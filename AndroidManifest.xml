@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.worldwondersapp"
     android:versionCode="1"
@@ -34,7 +35,7 @@
         </activity>
         
         <provider
-            android:name=".contentprovider.WorldWondersContentProvider"
+            android:name="com.curso.android.ciant.worldwondersapp.contentprovider.WorldWondersContentProvider"
             android:authorities="com.curso.android.ciant.worldwondersapp"
             android:exported="false" />
         

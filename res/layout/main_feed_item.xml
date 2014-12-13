@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/adapter_feed_horizontal_margin"
+    android:paddingRight="@dimen/adapter_feed_horizontal_margin"
+    android:paddingTop="@dimen/adapter_feed_vertical_margin"
+    android:paddingBottom="@dimen/adapter_feed_vertical_margin"
+    style="@style/main_item_content">
+    
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome da Maravilha do Mundo"
+        style="@style/main_item_name"/>
+    
+    <TextView
+        android:id="@+id/text_view_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_name"
+        android:text="Peru"
+        style="@style/main_item_country"/>
+    
+    <ImageView
+        android:id="@+id/image_view_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/like"/>
+
+    <TextView
+        android:id="@+id/text_view_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_below="@+id/text_view_country"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        style="@style/main_item_description"/>
+
+    <ImageView
+        android:id="@+id/image_view_world_wonder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_below="@+id/text_view_description"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/machu_picchu"/>
+
+    <ProgressBar
+        android:id="@+id/prg_bar_view_world_wonder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_below="@+id/text_view_description"
+        android:layout_centerInParent="true"
+        style="?android:attr/progressBarStyleLarge"
+        android:visibility="gone"/>
+
+</RelativeLayout>

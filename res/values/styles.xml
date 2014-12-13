@@ -16,5 +16,27 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="main_content">
+        <item name="android:background">@color/bg_main</item>
+    </style>
+
+    <style name="main_item_content">
+        <item name="android:background">@color/bg_main_feed</item>
+    </style>
+
+    <style name="main_item_name">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="main_item_country">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="main_item_description">
+        <item name="android:textSize">14sp</item>
+    </style>
 
 </resources>
