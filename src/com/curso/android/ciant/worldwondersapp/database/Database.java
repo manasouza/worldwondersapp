@@ -22,8 +22,7 @@ public class Database extends SQLiteOpenHelper{
 		//Criando place table
 		db.execSQL(PlaceTable.SQL_CREATE);
 		
-		
-		   String sqlMock1 = "INSERT INTO place VALUES(1, 'Machu Picchu', 'Peru', " +
+				   String sqlMock1 = "INSERT INTO place VALUES(1, 'Machu Picchu', 'Peru', " +
 	                "'Da hora d+ Machu Picchu', 'http://atp.cx/wp-content/uploads/2011/02/Machu-Picchu1.jpg');";
 	        String sqlMock2 = "INSERT INTO place VALUES(2, 'Chichen Itza', 'Mexico', " +
 	                "'Da hora d+ Chichen Itza', 'http://www.chichenitza.com/images/chichenitza.jpg');";

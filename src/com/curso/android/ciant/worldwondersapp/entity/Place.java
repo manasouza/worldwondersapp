@@ -6,11 +6,11 @@ import android.database.Cursor;
 
 public class Place {
 
-    public Integer id;
-    public String placeName;
-    public String placeCountry;
-    public String placeDescription;
-    public String placeImageUrl;
+    private Integer id;
+    private String placeName;
+    private String placeCountry;
+    private String placeDescription;
+    private String placeImageUrl;
     
     public Place(final Cursor cursor){
     	setId(cursor.getInt(cursor.getColumnIndex(PlaceTable.ID)));
