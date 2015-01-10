@@ -13,6 +13,8 @@
     
     <!-- Messages -->
  	<string name="msg_required_field">Campo obrigatório</string>
+ 	<string name="msg_error_no_connection_available">Sem conexão com a internet.</string>
+ 	<string name="msg_error_no_service_available">Serviço indisponível. Tente mais tarde.</string>
  	    
     <!-- Register -->
     <string name="text_view_name">Nome</string>
@@ -26,6 +28,7 @@
     <string name="button_register">Enviar</string>
     <string name="msg_required_field_gender">Campo sexo é obrigatório</string>
     <string name="msg_password_confirmation">Confirmação de senha inválida</string>
+    
    
     
 </resources>

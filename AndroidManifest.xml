@@ -43,5 +43,9 @@
             android:authorities="com.curso.android.ciant.worldwondersapp"
             android:exported="false" />
         
+         <service
+            android:name="com.curso.android.ciant.worldwondersapp.service.SyncService"
+            android:exported="false" />
+        
     </application>
 </manifest>

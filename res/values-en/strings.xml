@@ -10,9 +10,12 @@
     <string name="button_signup">Sign Up</string>
     <string name="msg_invalid_login">Invalid user name or password</string>
     <string name="msg_signup_cancel">Sign Up canceled</string>
+    
 
     <!-- Messages -->
     <string name="msg_required_field">Required field</string>
+    <string name="msg_error_no_connection_available">No internet connection.</string>
+    <string name="msg_error_no_service_available">Service not available. Try later.</string>
     
     <!-- Register -->
     <string name="text_view_name">Name</string>

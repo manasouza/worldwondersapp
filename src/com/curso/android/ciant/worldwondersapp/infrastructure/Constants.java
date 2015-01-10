@@ -1,5 +1,7 @@
 package com.curso.android.ciant.worldwondersapp.infrastructure;
 public class Constants {
+	
+	public static final String HTTP_PROTOCOL = "http";
 
 	public static interface Entity {
 
@@ -27,4 +29,45 @@ public class Constants {
         public static final int LOGIN_ACTIVITY = 1;
         public static final int REGISTER_ACTIVITY = 2;
 	 }
+	 
+	 public static interface Integrator {
+
+		 public static interface WorldWondersApi {
+			 
+            public static final String HOST = "private-anon-81f689132-worldwondersapi.apiary-mock.com";
+            public static final String WORLD_WONDERS_LIST = "/worldwonders";
+            
+		 }
+	  }
+	 
+	 public static interface Service {
+
+	        public static interface Tag {
+
+	            public static final String COMMAND = "command";
+	            public static final String RESULT_RECEIVER = "receiver";
+	            public static final String TYPE_SYNCER = "typeSyncer";
+	            public static final String ERROR_MSG = "errorMsg";
+	            public static final String ERROR_CODE = "errorCode";
+	            public static final String MAX_NUMBER_ELEMENTS = "maxNumberElements";
+	        }
+
+	        public static interface Status {
+
+	            public static final int RUNNING = 0;
+	            public static final int FINISHED = 1;
+	            public static final int ERROR = 2;
+	        }
+
+	        public static interface SyncCommand {
+
+	            public static final int PLACE_ALL = 0;
+	        }
+
+	        public static interface ErrorType {
+
+	            public static final int SERVER = 0;
+	        }
+	    }
+	 
 }

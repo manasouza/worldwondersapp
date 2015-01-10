@@ -3,8 +3,10 @@ package com.curso.android.ciant.worldwondersapp.activity;
 import com.curso.android.ciant.worldwondersapp.adapter.FeedCursorAdapter;
 import com.curso.android.ciant.worldwondersapp.contentprovider.WorldWondersContentProvider;
 import com.curso.android.ciant.worldwondersapp.database.table.PlaceTable;
+import com.curso.android.ciant.worldwondersapp.infrastructure.Constants;
 import com.curso.android.ciant.worldwondersapp.integrator.UserSharedPreferences;
 import com.curso.android.ciant.worldwondersapp.manager.DatabaseManager;
+import com.curso.android.ciant.worldwondersapp.service.SyncService;
 import com.example.worldwondersapp.R;
 
 import android.app.Activity;
@@ -13,9 +15,12 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.ResultReceiver;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.app.LoaderManager;
 
 
@@ -57,6 +62,31 @@ public class MainActivity extends Activity {
                  feedCursorAdapter.swapCursor(null);
              }
         });
+        
+        Intent intent = new Intent(this, SyncService.class);
+
+        Bundle bundleExtras = new Bundle();
+        bundleExtras.putInt(Constants.Service.Tag.COMMAND, Constants.Service.SyncCommand.PLACE_ALL);
+        bundleExtras.putParcelable(Constants.Service.Tag.RESULT_RECEIVER, new ResultReceiver(new Handler()) {
+
+            @Override
+            protected void onReceiveResult(int resultCode, Bundle resultData) {
+
+                if (Constants.Service.Status.FINISHED == resultCode) {
+
+                	Toast.makeText(MainActivity.this, "Finalizou", Toast.LENGTH_SHORT).show();
+                    
+                } else if (Constants.Service.Status.ERROR == resultCode) {
+                    if (resultData != null) {
+                        String errorMsg = resultData.getString(Constants.Service.Tag.ERROR_MSG);
+                        Toast.makeText(MainActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        intent.putExtras(bundleExtras);
+        startService(intent);
     }
 
 

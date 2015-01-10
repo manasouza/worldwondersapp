@@ -1,16 +1,26 @@
 package com.curso.android.ciant.worldwondersapp.entity;
 
+import org.json.JSONObject;
+
 import com.curso.android.ciant.worldwondersapp.database.table.PlaceTable;
 
 import android.database.Cursor;
 
-public class Place {
+public class Place extends BaseEntity{
 
     private Integer id;
     private String placeName;
     private String placeCountry;
     private String placeDescription;
     private String placeImageUrl;
+    
+    public Place(final JSONObject jsonObject) {
+        setId(this.getInteger(jsonObject, "id"));
+    	setPlaceName(this.getString(jsonObject, "name"));
+    	setPlaceCountry(this.getString(jsonObject, "country"));
+    	setPlaceDescription(this.getString(jsonObject, "description"));
+    	setPlaceImageUrl(this.getString(jsonObject, "image_url"));
+    }
     
     public Place(final Cursor cursor){
     	setId(cursor.getInt(cursor.getColumnIndex(PlaceTable.ID)));

@@ -21,29 +21,29 @@ public class Database extends SQLiteOpenHelper{
 		
 		//Criando place table
 		db.execSQL(PlaceTable.SQL_CREATE);
-		
-				   String sqlMock1 = "INSERT INTO place VALUES(1, 'Machu Picchu', 'Peru', " +
-	                "'Da hora d+ Machu Picchu', 'http://atp.cx/wp-content/uploads/2011/02/Machu-Picchu1.jpg');";
-	        String sqlMock2 = "INSERT INTO place VALUES(2, 'Chichen Itza', 'Mexico', " +
-	                "'Da hora d+ Chichen Itza', 'http://www.chichenitza.com/images/chichenitza.jpg');";
-	        String sqlMock3 = "INSERT INTO place VALUES(3, 'Christ Redeemer', 'Brazil', " +
-	                "'Da hora d+ Christ Redeemer', 'http://www.thewondersoftheworld.net/images/ChristTheRedeemer1.jpg');";
-	        String sqlMock4 = "INSERT INTO place VALUES(4, 'Great Wall', 'China', " +
-	                "'Da hora d+ Great Wall', 'http://img.timeinc.net/time/photoessays/2008/beijing_travel/great_wall_beijing.jpg');";
-	        String sqlMock5 = "INSERT INTO place VALUES(5, 'Taj Mahal', 'India', " +
-	                "'Da hora d+ Taj Mahal', 'http://www.tajmahal.com/images/taj_mahal_india.jpg');";
-	        String sqlMock6 = "INSERT INTO place VALUES(6, 'Petra', 'Jordan', " +
-	                "'Da hora d+ Petra', 'http://www.culturefocus.com/jordan/pictures/petra-26small.jpg');";
-	        String sqlMock7 = "INSERT INTO place VALUES(7, 'Colosseum', 'Italy', " +
-	                "'Da hora d+ Colosseum', 'http://www.altiusdirectory.com/Arts/images/Colosseum.jpg');";
-
-	        db.execSQL(sqlMock1);
-	        db.execSQL(sqlMock2);
-	        db.execSQL(sqlMock3);
-	        db.execSQL(sqlMock4);
-	        db.execSQL(sqlMock5);
-	        db.execSQL(sqlMock6);
-	        db.execSQL(sqlMock7);
+//		
+//				   String sqlMock1 = "INSERT INTO place VALUES(1, 'Machu Picchu', 'Peru', " +
+//	                "'Da hora d+ Machu Picchu', 'http://atp.cx/wp-content/uploads/2011/02/Machu-Picchu1.jpg');";
+//	        String sqlMock2 = "INSERT INTO place VALUES(2, 'Chichen Itza', 'Mexico', " +
+//	                "'Da hora d+ Chichen Itza', 'http://www.chichenitza.com/images/chichenitza.jpg');";
+//	        String sqlMock3 = "INSERT INTO place VALUES(3, 'Christ Redeemer', 'Brazil', " +
+//	                "'Da hora d+ Christ Redeemer', 'http://www.thewondersoftheworld.net/images/ChristTheRedeemer1.jpg');";
+//	        String sqlMock4 = "INSERT INTO place VALUES(4, 'Great Wall', 'China', " +
+//	                "'Da hora d+ Great Wall', 'http://img.timeinc.net/time/photoessays/2008/beijing_travel/great_wall_beijing.jpg');";
+//	        String sqlMock5 = "INSERT INTO place VALUES(5, 'Taj Mahal', 'India', " +
+//	                "'Da hora d+ Taj Mahal', 'http://www.tajmahal.com/images/taj_mahal_india.jpg');";
+//	        String sqlMock6 = "INSERT INTO place VALUES(6, 'Petra', 'Jordan', " +
+//	                "'Da hora d+ Petra', 'http://www.culturefocus.com/jordan/pictures/petra-26small.jpg');";
+//	        String sqlMock7 = "INSERT INTO place VALUES(7, 'Colosseum', 'Italy', " +
+//	                "'Da hora d+ Colosseum', 'http://www.altiusdirectory.com/Arts/images/Colosseum.jpg');";
+//
+//	        db.execSQL(sqlMock1);
+//	        db.execSQL(sqlMock2);
+//	        db.execSQL(sqlMock3);
+//	        db.execSQL(sqlMock4);
+//	        db.execSQL(sqlMock5);
+//	        db.execSQL(sqlMock6);
+//	        db.execSQL(sqlMock7);
 	}
 
 	@Override
