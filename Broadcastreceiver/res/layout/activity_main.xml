@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.broadcastreceiver.MainActivity" >
+
+    <Button android:id="@+id/send"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="Enviar Broadcast personalizado"/>
+    
+    <Button android:id="@+id/scheduler"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="Agendar broadcast + 1m"/>
+
+</LinearLayout>
